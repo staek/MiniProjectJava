@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -20,6 +22,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import kr.co.softcampus.interceptor.TopMenuInterceptor;
 import kr.co.softcampus.mapper.BoardMapper;
 import kr.co.softcampus.mapper.TopMenuMapper;
+import kr.co.softcampus.mapper.UserMapper;
 import kr.co.softcampus.service.TopMenuService;
 
 // Spring MVC 프로젝트에 관련된 설정을 하는 클래스
@@ -101,6 +104,13 @@ public class ServletAppContext implements WebMvcConfigurer{
 		return factoryBean;
 	}
 
+	@Bean
+	public MapperFactoryBean<UserMapper> getUserMapper(SqlSessionFactory factory) throws Exception{
+		MapperFactoryBean<UserMapper> factoryBean = new MapperFactoryBean<UserMapper>(UserMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		// TODO Auto-generated method stub
@@ -112,6 +122,24 @@ public class ServletAppContext implements WebMvcConfigurer{
 		reg1.addPathPatterns("/**");
 	}
 	
+	
+	// 프로퍼티 파일 읽어오기 위함.
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
+	
+	
+	//에러메시지 프로퍼티파일 등록
+	@Bean
+	public ReloadableResourceBundleMessageSource messageSource() {
+		
+		ReloadableResourceBundleMessageSource res = new ReloadableResourceBundleMessageSource();
+		res.setBasename("/WEB-INF/properties/error_message");
+		
+		return res;
+		
+	}
 
 	
 }
