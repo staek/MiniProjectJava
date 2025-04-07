@@ -68,6 +68,13 @@ public class UserBean {
 	public void setUser_pw(String user_pw) {
 		this.user_pw = user_pw;
 	}
+
+	@Override
+	public String toString() {
+		return "UserBean [user_idx=" + user_idx + ", user_name=" + user_name + ", user_id=" + user_id + ", user_pw="
+				+ user_pw + ", user_pw2=" + user_pw2 + ", userIdExist=" + userIdExist + "]";
+	}
+	
 	
 	
 	
