@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import kr.co.softcampus.beans.BoardInfoBean;
+import kr.co.softcampus.beans.UserBean;
 import kr.co.softcampus.service.TopMenuService;
 
 public class TopMenuInterceptor implements HandlerInterceptor{
@@ -20,9 +21,11 @@ public class TopMenuInterceptor implements HandlerInterceptor{
     */
 	
 	private TopMenuService topMenuService;
+	private UserBean loginUserBean;
 	
-	public TopMenuInterceptor(TopMenuService topMenuService) {
+	public TopMenuInterceptor(TopMenuService topMenuService, UserBean loginUserBean) {
 		this.topMenuService = topMenuService;
+		this.loginUserBean = loginUserBean;
 	}
 	
 	@Override
@@ -31,7 +34,7 @@ public class TopMenuInterceptor implements HandlerInterceptor{
 		// TODO Auto-generated method stub
 		List<BoardInfoBean> topMenuList = topMenuService.getTopMenuList();
 		request.setAttribute("topMenuList", topMenuList);
-		
+		request.setAttribute("loginUserBean", loginUserBean);
 		
 		return true;
 	}

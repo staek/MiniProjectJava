@@ -1,5 +1,7 @@
 package kr.co.softcampus.service;
 
+import javax.annotation.Resource;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,9 @@ public class UserService {
 
 	@Autowired
 	private UserDao userDao;
+	
+	@Resource(name = "loginUserBean")
+	private UserBean loginUserBean;
 	
 	public boolean checkuserIdExist(String user_id) {
 		
@@ -32,4 +37,16 @@ public class UserService {
 		System.out.println("UserService addUserInfo");
 		userDao.addUserInfo(joinUserBean);
 	}
+	
+	public void getLoginUserInfo(UserBean tempLoginUserBean) {
+		
+		UserBean tempLoginUserBean2 = userDao.getLoginUserInfo(tempLoginUserBean);
+		
+		if(tempLoginUserBean2 != null) {
+			loginUserBean.setUser_idx(tempLoginUserBean2.getUser_idx());
+			loginUserBean.setUser_name(tempLoginUserBean2.getUser_name());
+			loginUserBean.setUserLogin(true);
+		}
+	}
+	
 }
