@@ -1,15 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<c:set var="root" value="${pageContext.request.contextPath}/" />
- 
+<c:set var='root' value="${pageContext.request.contextPath }/"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>╧л╢о га╥на╖ф╝</title>
+<title>К╞╦К▀┬ М■└К║°Л═²М┼╦</title>
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -20,98 +18,37 @@
 
 <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
 
-<!-- ╟т╫ц╠ш ╦╝╫╨ф╝ -->
+<!-- Й╡▄Л▀°Й╦─ К╕╛Л┼╓М┼╦ -->
 <div class="container" style="margin-top:100px">
 	<div class="card shadow">
 		<div class="card-body">
-			<h4 class="card-title">╟т╫цфг юл╦╖</h4>
+			<h4 class="card-title">${boardInfoName }</h4>
 			<table class="table table-hover" id='board_list'>
 				<thead>
 					<tr>
-						<th class="text-center d-none d-md-table-cell">╠ш╧Ьхё</th>
-						<th class="w-50">а╕╦Я</th>
-						<th class="text-center d-none d-md-table-cell">юш╪╨юз</th>
-						<th class="text-center d-none d-md-table-cell">юш╪╨Ё╞б╔</th>
+						<th class="text-center d-none d-md-table-cell">Й╦─К╡┬М≤╦</th>
+						<th class="w-50">Л═°К╙╘</th>
+						<th class="text-center d-none d-md-table-cell">Л·▒Л└╠Л·░</th>
+						<th class="text-center d-none d-md-table-cell">Л·▒Л└╠К┌═Л╖°</th>
 					</tr>
 				</thead>
 				<tbody>
+					<c:forEach var='obj' items="${contentList }">
 					<tr>
-						<td class="text-center d-none d-md-table-cell">10</td>
-						<td><a href='${root }board/read'>╠ш а╕╦Я ют╢о╢ы</a></td>
-						<td class="text-center d-none d-md-table-cell">х╚╠Ф╣©</td>
-						<td class="text-center d-none d-md-table-cell">2018-12-12</td>
+						<td class="text-center d-none d-md-table-cell">${obj.content_idx }</td>
+						<td><a href='${root }board/read'>${obj.content_subject }</a></td>
+						<td class="text-center d-none d-md-table-cell">${obj.content_writer_name }</td>
+						<td class="text-center d-none d-md-table-cell">${obj.content_date }</td>
 						
 					</tr>
-					<tr>
-						<td class="text-center d-none d-md-table-cell">10</td>
-						<td><a href='board_read.html'>╠ш а╕╦Я ют╢о╢ы</a></td>
-						<td class="text-center d-none d-md-table-cell">х╚╠Ф╣©</td>
-						<td class="text-center d-none d-md-table-cell">2018-12-12</td>
-						
-					</tr>
-					<tr>
-						<td class="text-center d-none d-md-table-cell">10</td>
-						<td><a href='board_read.html'>╠ш а╕╦Я ют╢о╢ы</a></td>
-						<td class="text-center d-none d-md-table-cell">х╚╠Ф╣©</td>
-						<td class="text-center d-none d-md-table-cell">2018-12-12</td>
-						
-					</tr>
-					<tr>
-						<td class="text-center d-none d-md-table-cell">10</td>
-						<td><a href='board_read.html'>╠ш а╕╦Я ют╢о╢ы</a></td>
-						<td class="text-center d-none d-md-table-cell">х╚╠Ф╣©</td>
-						<td class="text-center d-none d-md-table-cell">2018-12-12</td>
-						
-					</tr>
-					<tr>
-						<td class="text-center d-none d-md-table-cell">10</td>
-						<td><a href='board_read.html'>╠ш а╕╦Я ют╢о╢ы</a></td>
-						<td class="text-center d-none d-md-table-cell">х╚╠Ф╣©</td>
-						<td class="text-center d-none d-md-table-cell">2018-12-12</td>
-						
-					</tr>
-					<tr>
-						<td class="text-center d-none d-md-table-cell">10</td>
-						<td><a href='board_read.html'>╠ш а╕╦Я ют╢о╢ы</a></td>
-						<td class="text-center d-none d-md-table-cell">х╚╠Ф╣©</td>
-						<td class="text-center d-none d-md-table-cell">2018-12-12</td>
-						
-					</tr>
-					<tr>
-						<td class="text-center d-none d-md-table-cell">10</td>
-						<td><a href='board_read.html'>╠ш а╕╦Я ют╢о╢ы</a></td>
-						<td class="text-center d-none d-md-table-cell">х╚╠Ф╣©</td>
-						<td class="text-center d-none d-md-table-cell">2018-12-12</td>
-						
-					</tr>
-					<tr>
-						<td class="text-center d-none d-md-table-cell">10</td>
-						<td><a href='board_read.html'>╠ш а╕╦Я ют╢о╢ы</a></td>
-						<td class="text-center d-none d-md-table-cell">х╚╠Ф╣©</td>
-						<td class="text-center d-none d-md-table-cell">2018-12-12</td>
-						
-					</tr>
-					<tr>
-						<td class="text-center d-none d-md-table-cell">10</td>
-						<td><a href='board_read.html'>╠ш а╕╦Я ют╢о╢ы</a></td>
-						<td class="text-center d-none d-md-table-cell">х╚╠Ф╣©</td>
-						<td class="text-center d-none d-md-table-cell">2018-12-12</td>
-						
-					</tr>
-					<tr>
-						<td class="text-center d-none d-md-table-cell">10</td>
-						<td><a href='board_read.html'>╠ш а╕╦Я ют╢о╢ы</a></td>
-						<td class="text-center d-none d-md-table-cell">х╚╠Ф╣©</td>
-						<td class="text-center d-none d-md-table-cell">2018-12-12</td>
-						
-					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 			
 			<div class="d-none d-md-block">
 				<ul class="pagination justify-content-center">
 					<li class="page-item">
-						<a href="#" class="page-link">юлюЭ</a>
+						<a href="#" class="page-link">Л²╢Л═└</a>
 					</li>
 					<li class="page-item">
 						<a href="#" class="page-link">1</a>
@@ -144,7 +81,7 @@
 						<a href="#" class="page-link">10</a>
 					</li>
 					<li class="page-item">
-						<a href="#" class="page-link">╢ыю╫</a>
+						<a href="#" class="page-link">К▀╓Л²▄</a>
 					</li>
 				</ul>
 			</div>
@@ -152,16 +89,16 @@
 			<div class="d-block d-md-none">
 				<ul class="pagination justify-content-center">
 					<li class="page-item">
-						<a href="#" class="page-link">юлюЭ</a>
+						<a href="#" class="page-link">Л²╢Л═└</a>
 					</li>
 					<li class="page-item">
-						<a href="#" class="page-link">╢ыю╫</a>
+						<a href="#" class="page-link">К▀╓Л²▄</a>
 					</li>
 				</ul>
 			</div>
 			
 			<div class="text-right">
-				<a href="${root }board/write?board_info_idx=${board_info_idx}" class="btn btn-primary">╠ш╬╡╠Б</a>
+				<a href="${root }board/write?board_info_idx=${board_info_idx}" class="btn btn-primary">Й╦─Л⌠╟Й╦╟</a>
 			</div>
 			
 		</div>
@@ -178,3 +115,4 @@
 
 
 
+    

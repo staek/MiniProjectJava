@@ -22,6 +22,15 @@ public class ContentBean {
 	private int content_board_idx;
 	
 	private String content_date;
+	private String Content_writer_name;
+	
+	public String getContent_writer_name() {
+		return Content_writer_name;
+	}
+
+	public void setContent_writer_name(String Content_writer_name) {
+		this.Content_writer_name = Content_writer_name;
+	}
 
 	public int getContent_idx() {
 		return content_idx;
