@@ -1,14 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<c:set var="root" value="${pageContext.request.contextPath}/" />    
+<c:set var='root' value='${pageContext.request.contextPath }/'/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>╧л╢о га╥на╖ф╝</title>
+<title>К╞╦К▀┬ М■└К║°Л═²М┼╦</title>
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -19,7 +18,6 @@
 	
 <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
 
-
 <div class="container" style="margin-top:100px">
 	<div class="row">
 		<div class="col-sm-3"></div>
@@ -27,30 +25,32 @@
 			<div class="card shadow">
 				<div class="card-body">
 					<div class="form-group">
-						<label for="board_writer_name">юш╪╨юз</label>
-						<input type="text" id="board_writer_name" name="board_writer_name" class="form-control" value="х╚╠Ф╣©" disabled="disabled"/>
+						<label for="board_writer_name">Л·▒Л└╠Л·░</label>
+						<input type="text" id="board_writer_name" name="board_writer_name" class="form-control" value="${readContentBean.content_writer_name }" disabled="disabled"/>
 					</div>
 					<div class="form-group">
-						<label for="board_date">юш╪╨Ё╞б╔</label>
-						<input type="text" id="board_date" name="board_date" class="form-control" value="2018-7-20" disabled="disabled"/>
+						<label for="board_date">Л·▒Л└╠К┌═Л╖°</label>
+						<input type="text" id="board_date" name="board_date" class="form-control" value="${readContentBean.content_date }" disabled="disabled"/>
 					</div>
 					<div class="form-group">
-						<label for="board_subject">а╕╦Я</label>
-						<input type="text" id="board_subject" name="board_subject" class="form-control" value="а╕╦Яют╢о╢ы" disabled="disabled"/>
+						<label for="board_subject">Л═°К╙╘</label>
+						<input type="text" id="board_subject" name="board_subject" class="form-control" value="${readContentBean.content_subject }" disabled="disabled"/>
 					</div>
 					<div class="form-group">
-						<label for="board_content">Ё╩©К</label>
-						<textarea id="board_content" name="board_content" class="form-control" rows="10" style="resize:none" disabled="disabled">╨╩╧╝ют╢о╢ы</textarea>
+						<label for="board_content">К┌╢Л ╘</label>
+						<textarea id="board_content" name="board_content" class="form-control" rows="10" style="resize:none" disabled="disabled">${readContentBean.content_text }</textarea>
 					</div>
+					<c:if test="${readContentBean.content_file != null }">
 					<div class="form-group">
-						<label for="board_file">ц╥╨н юл╧лаЖ</label>
-						<img src="${root }image/logo.png" width="100%"/>						
+						<label for="board_file">Л╡╗К╤─ Л²╢К╞╦Л╖─</label>
+						<img src="${root }upload/${readContentBean.content_file}" width="100%"/>						
 					</div>
+					</c:if>
 					<div class="form-group">
 						<div class="text-right">
-							<a href="${root }board/main" class="btn btn-primary">╦Я╥о╨╦╠Б</a>
-							<a href="${root }board/modify" class="btn btn-info">╪Жа╓го╠Б</a>
-							<a href="${root }board/delete" class="btn btn-danger">╩Ха╕го╠Б</a>
+							<a href="${root }board/main?board_info_idx=${board_info_idx}" class="btn btn-primary">К╙╘К║²КЁ╢Й╦╟</a>
+							<a href="${root }board/modify" class="btn btn-info">Л┬≤Л═∙М∙≤Й╦╟</a>
+							<a href="${root }board/delete" class="btn btn-danger">Л┌╜Л═°М∙≤Й╦╟</a>
 						</div>
 					</div>
 				</div>
@@ -63,6 +63,6 @@
 
 <c:import url="/WEB-INF/views/include/bottom_info.jsp"/>
 
-
 </body>
 </html>
+    
