@@ -14,7 +14,7 @@ import kr.co.softcampus.service.TopMenuService;
 
 public class TopMenuInterceptor implements HandlerInterceptor{
 
-	// 인터셉터는 주입봇받음
+	// 인터셉터는 주입못받음
 	/*
 	@Autowired
 	private TopMenuService topMenuService;
