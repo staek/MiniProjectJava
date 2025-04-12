@@ -89,4 +89,8 @@ public class BoardService {
 		
 	}
 	
+	public void deleteContentInfo(int content_idx) {
+		boardDao.deleteContentInfo(content_idx);
+	}
+	
 }
