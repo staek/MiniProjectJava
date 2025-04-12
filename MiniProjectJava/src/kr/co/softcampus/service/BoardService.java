@@ -74,4 +74,19 @@ public class BoardService {
 		return boardDao.getContentInfo(content_idx);
 	}
 	
+	public void modifyContentInfo(ContentBean modifyContentBean) {
+		
+		MultipartFile upload_file = modifyContentBean.getUpload_file();
+		
+		if(upload_file.getSize() > 0) {
+			String file_name = saveUpLoadFile(upload_file);
+			System.out.println(file_name);
+			
+			modifyContentBean.setContent_file(file_name);
+		}
+		
+		boardDao.modifyContentInfo(modifyContentBean);
+		
+	}
+	
 }
